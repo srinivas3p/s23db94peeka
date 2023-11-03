@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  - const results = [{ classification: 'Class ICBM', range: 500, name: 'W88', damage: 100 }, { classification: 'Class Tactical', range: 750, name: 'B61', damage: 150 }, { classification: 'Class SLBM', range: 1000, name: 'Trident II D5', damage: 200 }]
+  .container-fluid
+    .row
+      each Nwclass, index in results
+        .col-sm-2(onclick=`buy(${index})`)
+          p= `Name: ${Nwclass.name}`
+          p= `Classification: ${Nwclass.classification}`
+          p= `Range: ${Nwclass.range} km`
+          p= `Damage: ${Nwclass.damage}`
+  script. 
+       function buy(index)
+       {
+        alert(`you purchased Item: ${index+1}`)
+       }
