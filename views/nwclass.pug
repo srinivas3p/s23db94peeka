@@ -2,10 +2,10 @@ extends layout
 
 block content
   h1= title
-  - const results = [{ classification: 'Class ICBM', range: 500, name: 'W88', damage: 100 }, { classification: 'Class Tactical', range: 750, name: 'B61', damage: 150 }, { classification: 'Class SLBM', range: 1000, name: 'Trident II D5', damage: 200 }]
+  - const items = results
   .container-fluid
     .row
-      each Nwclass, index in results
+      each Nwclass, index in items
         .col-sm-2(onclick=`buy(${index})`)
           p= `Name: ${Nwclass.name}`
           p= `Classification: ${Nwclass.classification}`
