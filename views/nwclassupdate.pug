@@ -15,35 +15,35 @@ block content
     script let actionid = "#{actionid}"
     div.row(class='mb-2')
     div.mr-1 ID is 
-      span(style="color:red")  #{nwclassid}
+      span(style="color:green")  #{nwclassid}
     form(id='nwclassForm', action= actionid, method="PUT")
       div.form-group
-      div(class="row g-3 align-items-center")
-        div(class="col-2")
+      div(class="row g-3 align-items-right")
+        div(class="col-auto")
           label.nwclassAttr(for='classification',class="col-form-label") nwclass classification
         div(class="col-auto")
           input#classification(type='text', name='classification',class="form-control", value=classification)
       div.form-group
       div(class="row g-3 align-items-center")
-        div(class="col-2")
+        div(class="col-auto")
           label.nwclassAttr(for='range',class="col-form-label") nwclass range 
         div(class="col-auto")
           input#range(type='number', name='range',class="form-control", value=range)
       div.form-group
-      div(class="row g-3 align-items-center")
-        div(class="col-2")
+      div(class="row g-3 align-items-left")
+        div(class="col-auto")
           label.nwclassAttr(for='name',class="col-form-label") nwclass name
         div(class="col-auto")
           input#name(type='text', name='name',class="form-control", value=name)
       div.form-group
       div(class="row g-3 align-items-center")
-        div(class="col-2")
+        div(class="col-auto")
           label.nwclassAttr(for='damage',class="col-form-label") nwclass damage
         div(class="col-auto")
           input#name(type='number', name='damage',class="form-control", value=damage)
-      input(class="btn btn-danger m-2" type="submit")
+      input(class="btn btn-warning m-2" type="submit")
         //- button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete
-      button(class="btn btn-secondary m-2" onclick="cancel()") Cancel
+      button(class="btn btn-success m-2" onclick="cancel()") Cancel
     
     script.
       document.forms['nwclassForm'].addEventListener('submit', (event) => {

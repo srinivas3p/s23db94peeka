@@ -18,4 +18,7 @@ router.get('/create', nwclass_controlers.nwclass_create_Page);
 /* GET create update page */
 router.get('/update', nwclass_controlers.nwclass_update_Page);
 
+/* GET delete nwclass page */
+router.get('/delete', nwclass_controlers.nwclass_delete_Page);
+
 module.exports = router;

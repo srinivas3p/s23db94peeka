@@ -166,5 +166,21 @@ res.send(`{'error': '${err}'}`);
 }
 };
 
+
+
+exports.nwclass_delete_Page = async function(req, res) {
+console.log("Delete view for id " + req.query.id)
+try{
+result = await nwclass.findById(req.query.id)
+res.render('nwclassdelete', { title: 'nwclass Delete', toShow:
+result });
+}
+catch(err){
+res.status(500)
+res.send(`{'error': '${err}'}`);
+}
+};
+
+
     
     

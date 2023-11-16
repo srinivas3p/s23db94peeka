@@ -1,25 +1,28 @@
 extends layout
 block content
- h1= title
- - let nwclassid = toShow._id
- - let classification = toShow.classification
- - let range = toShow.range
- - let name = toShow.name
- - let damage = toShow.damage
- div
- div.row
- div(class='nwclassAttr mr-3') nwclass ID is:
- div #{nwclassid}
- div.row
- div(class='nwclassAttr mr-3') nwclass classification is:
- div #{classification}
- div.row
- div(class='nwclassAttr mr-3') nwclass range is:
- div #{range}
- div.row
- div(class='nwclassAttr mr-3') nwclass name is:
- div #{name}
- div.row
- div(class='nwclassAttr mr-3') nwclass damage is:
- div #{damage}
+ if(toShow==Null)
+  h1 no instance to show 
+ else 
+  h1= title
+  - let nwclassid = toShow._id
+  - let classification = toShow.classification
+  - let range = toShow.range
+  - let name = toShow.name
+  - let damage = toShow.damage
+  div
+  div.row
+  div(class='nwclassAttr mr-3') nwclass ID is:
+  div #{nwclassid}
+  div.row
+  div(class='nwclassAttr mr-3') nwclass classification is:
+  div #{classification}
+  div.row
+  div(class='nwclassAttr mr-3') nwclass range is:
+  div #{range}
+  div.row
+  div(class='nwclassAttr mr-3') nwclass name is:
+  div #{name}
+  div.row
+  div(class='nwclassAttr mr-3') nwclass damage is:
+  div #{damage}
 
