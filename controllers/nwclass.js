@@ -137,4 +137,34 @@ res.status(500)
 res.send(`{'error': '${err}'}`);
 }
 };
+
+
+// Handle building the view for creating a nwclass.
+// No body, no in path parameter, no query.
+// Does not need to be async
+exports.nwclass_create_Page = function(req, res) {
+    console.log("create view")
+    try{
+    res.render('nwclasscreate', { title: 'nwclass Create'});
+    }
+    catch(err){
+    res.status(500)
+    res.send(`{'error': '${err}'}`);
+    }
+    };
+
+
+exports.nwclass_update_Page = async function(req, res) {
+console.log("update view for item "+req.query.id)
+try{
+let result = await nwclass.findById(req.query.id)
+res.render('nwclassupdate', { title: 'nwclass Update', toShow: result });
+}
+catch(err){
+res.status(500)
+res.send(`{'error': '${err}'}`);
+}
+};
+
+    
     

@@ -1,0 +1,31 @@
+extends layout
+block content
+ h1= title
+ form(id='nwclassForm', action="/resource/nwclass", method="POST")
+  div.form-group
+   label.nwclassAttr(for='classification') nwclass classification
+   input#classification(type='text', name='classification')
+  div.form-group
+   label.nwclassAttr(for='range') nwclass range
+   input#range(type='number', name='range')
+  div.form-group
+   label.nwclassAttr(for='name') nwclass name 
+   input#name(type='text', name='name')
+  div.form-group
+   label.nwclassAttr(for='damage') nwclass damage 
+   input#name(type='number', name='damage')
+  input(type="submit")
+ script.
+  document.forms['nwclassForm'].addEventListener('submit', (event) => {
+    event.preventDefault();
+    fetch(event.target.action, {
+        method: 'POST',
+        body: new URLSearchParams(new FormData(event.target)) 
+    }).then((resp) => {
+        return resp.text();
+    }).then((body) => {
+        alert("Save succeded")
+    }).catch((error) => {
+        alert("Save failed " + error )
+    });
+   });
