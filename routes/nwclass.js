@@ -8,9 +8,9 @@ router.get('/', function(req, res, next) {
 var express = require('express');
 const nwclass_controlers= require('../controllers/nwclass');
 var router = express.Router();
-/* GET costumes */
+/* GET nwclasss */
 router.get('/', nwclass_controlers.nwclass_view_all_Page );
-module.exports = router;
-
+/* GET detail nwclass page */
+router.get('/detail', nwclass_controlers.nwclass_view_one_Page);
 
 module.exports = router;
