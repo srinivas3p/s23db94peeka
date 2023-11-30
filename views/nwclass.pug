@@ -3,13 +3,19 @@ extends layout
 block content
   h1= title
   - let items = results
+  - let createins = `createInstance("/nwclass/create")`
+  button.btn.btn-primary.ml-1(onclick=createins) create
   div.container-fluid
     div.row.m-1
       each item in items
         - let destination = `dispatch("/nwclass/update?id=${item._id}")`
+        - let detailins = `detailInstance("/nwclass/detail?id=${item._id}")`
+        - let deleteins = `deleteInstance("/nwclass/detail?id=${item._id}")`
         div.row-sm-2.m-1
           | Item #{item.name}(#{item.classification}) Range: #{item.range} km Damage: #{item.damage}
           button.btn.btn-primary.ml-1(onclick=destination) Update
+          button.btn.btn-primary.ml-1(onclick=detailins) Detail
+          button.btn.btn-primary.ml-1(onclick=deleteins) Delete
     div.container-fluid
       div.row
         each Nwclass, index in items
@@ -25,5 +31,17 @@ block content
     }
   script.
     function dispatch(path) {
+      window.location.href = path;
+    }
+  script.
+    function createInstance(path) {
+      window.location.href = path;
+    }
+  script.
+    function deleteInstance(path) {
+      window.location.href = path;
+    }
+  script.
+    function detailInstance(path) {
       window.location.href = path;
     }
